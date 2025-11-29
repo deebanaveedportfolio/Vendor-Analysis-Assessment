@@ -26,7 +26,12 @@ Vendor-Analysis-Assessment/
 - **Purpose**: Contains vendor data to be analyzed
 - **Location**: `/home/user/Vendor-Analysis-Assessment/Vendor Analysis Assessment - Deeba.xlsx`
 - **Structure**: First row contains headers, subsequent rows contain vendor information
-- **Primary Column**: Column A contains vendor names
+- **Column Layout**:
+  - Column A (index 0): Vendor Name
+  - Column B (index 1): Department
+  - Column C (index 2): Last 12 months Cost (USD)
+  - Column D (index 3): 1-line Description on what the Vendor does
+  - Column E (index 4): **Suggestions (Consolidate / Terminate / Optimize costs)** - This is where classifications should be written
 
 #### `read_excel.py`
 - **Purpose**: Simple utility script to read and display Excel data
@@ -37,10 +42,12 @@ Vendor-Analysis-Assessment/
 #### `classify_vendors.py`
 - **Purpose**: Main classification engine for vendor categorization
 - **Functionality**:
-  - Loads vendor data from Excel file
+  - Loads vendor data from Excel file (reads vendor names from Column A)
   - Applies keyword-based classification rules
   - Categorizes vendors into departments
-  - Outputs results as markdown table
+  - Outputs results as markdown table to console
+- **Current Behavior**: Reads from Column A, prints to console
+- **Expected Behavior**: Should write classifications to Column E (Suggestions column) in the Excel file
 - **Output Format**: Markdown table with columns: Vendor Name, Department
 - **Execution**: `python3 classify_vendors.py`
 
@@ -120,7 +127,9 @@ The classification system uses the following departments with priority order (ch
    - Always use openpyxl library for Excel operations
    - Excel file path: `/home/user/Vendor-Analysis-Assessment/Vendor Analysis Assessment - Deeba.xlsx`
    - First row (row 1) is header; data starts at row 2
-   - Primary data is in column A (index 0)
+   - Column A (index 0): Vendor names - READ from here
+   - Column E (index 4): Suggestions - WRITE classifications here
+   - When writing to Excel, always save the workbook after modifications
 
 2. **Classification Updates**:
    - When adding new classification rules, maintain priority order
@@ -177,6 +186,28 @@ cd /home/user/Vendor-Analysis-Assessment
 python3 read_excel.py
 ```
 
+#### Writing Classifications to Excel File
+
+To write classifications back to Column E (Suggestions column):
+
+```python
+from openpyxl import load_workbook
+
+# Load workbook
+wb = load_workbook('/home/user/Vendor-Analysis-Assessment/Vendor Analysis Assessment - Deeba.xlsx')
+ws = wb.active
+
+# Write to column E (index 5 when using cell notation: A=1, B=2, C=3, D=4, E=5)
+for row_num in range(2, ws.max_row + 1):  # Start from row 2 (skip header)
+    vendor_name = ws.cell(row=row_num, column=1).value  # Column A
+    if vendor_name:
+        classification = classify_vendor(vendor_name)
+        ws.cell(row=row_num, column=5).value = classification  # Column E
+
+# Save the workbook
+wb.save('/home/user/Vendor-Analysis-Assessment/Vendor Analysis Assessment - Deeba.xlsx')
+```
+
 ## Dependencies
 
 ### Python Libraries
@@ -208,9 +239,8 @@ For each vendor:
         ↓
     Return department category
     ↓
-Generate markdown table output
-    ↓
-Print results
+[Current] Generate markdown table output → Print to console
+[Desired] Write classification to Column E (Suggestions) → Save workbook
 ```
 
 ## Important Notes for AI Assistants
@@ -226,7 +256,7 @@ Print results
 
 4. **Case Sensitivity**: All comparisons are case-insensitive. Always use `.lower()` when adding new keywords.
 
-5. **Excel File Structure**: Assume column A contains vendor names and is the primary data source unless otherwise specified.
+5. **Excel File Structure**: Column A contains vendor names (source data). Column E is the "Suggestions" column where classifications should be written.
 
 6. **Output Format**: Maintain markdown table format for outputs to ensure compatibility with documentation and reporting tools.
 
