@@ -63,6 +63,40 @@ annual savings for each opportunity."
 
 ---
 
+## Top 3 Opportunities (Summary Table)
+
+| Opportunity | Explanation | Estimated Annual Savings (USD) |
+|-------------|-------------|-------------------------------|
+| CRM & Marketing Tool Consolidation | Consolidate overlapping SaaS platforms (Salesforce, Hubspot, Cognism, LinkedIn) to reduce redundancy and license costs | $150,000 |
+| Non-Critical Travel & Hospitality Vendors | Terminate hotels, restaurants, catering, events, and office move vendors that are not mission-critical | $120,000 |
+| Redundant IT & Cloud Infrastructure | Optimize duplicate cloud services, SaaS subscriptions, and IT consulting platforms (AWS, Azure, Workato, Zapier, Smartsheet) | $100,000 |
+
+**Total Estimated Annual Savings: $370,000**
+
+---
+
+## Executive Memo
+
+**Audience:** CEO & CFO
+**Summary:**
+After a thorough vendor spend analysis, we identified key opportunities to reduce costs and streamline operations without impacting mission-critical services. Our recommendations focus on consolidating overlapping SaaS tools, terminating non-essential travel/office/hospitality vendors, and optimizing IT/cloud infrastructure spend. Estimated annual savings across these initiatives total **$370,000**.
+
+**Key Recommendations:**
+1. Consolidate overlapping CRM & marketing platforms to reduce redundancy and subscription costs.
+2. Terminate non-critical travel, hospitality, and office-related vendors.
+3. Optimize redundant IT/cloud infrastructure services to reduce costs without affecting business operations.
+
+**Next Steps:**
+- Approve strategic recommendations and communicate with relevant department heads.
+- Implement vendor consolidation and termination initiatives in phases.
+- Monitor actual savings and report quarterly to finance leadership.
+
+---
+
+**Note:** The master Excel file with detailed vendor assignments and recommendations is available in this repository: `Vendor Analysis Assessment - Deeba.xlsx`
+
+---
+
 ## Repository Contents
 
 ### Files
