@@ -1,5 +1,14 @@
 # CLAUDE.md - AI Assistant Guide
 
+> **Note:** This file is the **technical documentation for AI assistants**. For project overview, methodology, and business context, see **[README.md](README.md)**.
+
+## Documentation Structure
+
+This repository contains two complementary documentation files:
+
+- **README.md** - User-facing project documentation explaining the Vendor Spend Strategy Assessment methodology, business deliverables, and how Claude Code was used
+- **CLAUDE.md** (this file) - Technical guide for AI assistants covering codebase structure, development conventions, and implementation details
+
 ## Repository Overview
 
 **Vendor-Analysis-Assessment** is a Python-based vendor classification system that analyzes vendor data from Excel spreadsheets and categorizes vendors into organizational departments based on business type and naming patterns.
@@ -13,7 +22,8 @@ Vendor-Analysis-Assessment/
 ├── Vendor Analysis Assessment - Deeba.xlsx    # Source data file
 ├── classify_vendors.py                        # Main classification script
 ├── read_excel.py                              # Excel data reader utility
-└── CLAUDE.md                                  # This file
+├── README.md                                  # Project overview and methodology
+└── CLAUDE.md                                  # This file (AI assistant guide)
 ```
 
 ### Key Files
